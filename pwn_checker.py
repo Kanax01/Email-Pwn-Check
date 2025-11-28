@@ -19,7 +19,7 @@ num_pwn = []
 num_breach = 0
 
 # art
-figlet = pyfiglet.figlet_format("Email Breach Checker")
+figlet = pyfiglet.figlet_format("Email Saftey Checker")
 
 
 class scraper: # now that i think of it why did I put scraper in a class, life is full of mistories
@@ -30,8 +30,9 @@ class scraper: # now that i think of it why did I put scraper in a class, life i
     prefix = hash[:5]
     suffix = hash[5:]
     response = requests.get(f"https://api.pwnedpasswords.com/range/{prefix}")
+    print("Status Code:")
     print(response.status_code)
-    print(Fore.YELLOW + Style.BRIGHT + "Hashes:")
+    print(Fore.YELLOW + Style.BRIGHT + "Hashes:\n\n")
     print(response.text)
     if response.status_code == 200:
       for line in response.text.splitlines():
@@ -45,6 +46,7 @@ class scraper: # now that i think of it why did I put scraper in a class, life i
       print(f"Target: {target}")
       print(f"Full Hash: {hash}")
       print(f"Prefix: {prefix}")
+      print(f"Suffix: {suffix}")
       print(f"URL: https://api.pwnedpasswords.com/range/{prefix}")
       print(f"Your email has been found in {num_breach} data breaches")
       if not num_pwn:
