@@ -9,7 +9,7 @@
 
 ```
 cd Email-Pwn-Check
-python3 pwnCheck.py
+python3 pwnChecker.py
 ```
 
 <div align="center">
